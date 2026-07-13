@@ -1,0 +1,267 @@
+@charset "utf-8";
+
+.profile-hero {
+    position: relative;
+    padding: 150px 24px 100px;
+    background: radial-gradient(ellipse at 50% 0%, #2c2340 0%, var(--navy-deep) 60%);
+    overflow: hidden;
+}
+
+.profile-breadcrumb {
+    max-width: 1080px;
+    margin: 0 auto 40px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: .8rem;
+    letter-spacing: .1em;
+    color: rgba(253,248,239,.55);
+}
+
+.profile-breadcrumb a {
+    color: var(--gold-soft);
+    border-bottom: 1px solid transparent;
+    transition: border-color .25s ease;
+}
+.profile-breadcrumb a:hover { border-color: var(--gold-soft); }
+
+.profile-layout {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 64px;
+    align-items: start;
+}
+
+/* 横長ポートレート画像を使う場合のレイアウト */
+.profile-layout.is-wide {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    display: block;
+}
+
+.profile-layout.is-wide > div:first-child {
+    width: 100%;
+}
+
+.profile-layout.is-wide .profile-portrait {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 18px 0;
+    line-height: 0;
+}
+
+.profile-layout.is-wide .profile-portrait img {
+    width: 100%;
+    height: auto;
+}
+.profile-layout.is-wide .profile-fanname {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.profile-portrait {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(232,196,106,.3);
+}
+
+.profile-portrait img {
+    width: 100%;
+    display: block;
+}
+
+.profile-fanname {
+    margin-top: 18px;
+    text-align: center;
+    font-family: "Cormorant Garamond", serif;
+    font-size: .85rem;
+    letter-spacing: .1em;
+    color: var(--gold-soft);
+}
+
+.profile-fanname strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--cream);
+    margin-top: 4px;
+    letter-spacing: .06em;
+}
+
+.profile-main .name-en {
+    font-family: "Cormorant Garamond", serif;
+    letter-spacing: .3em;
+    font-size: .85rem;
+    color: var(--pink-deep);
+}
+
+.profile-main .name-jp {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    color: var(--cream);
+    letter-spacing: .1em;
+    margin: 12px 0 4px;
+}
+
+.profile-main .name-kana {
+    font-size: .8rem;
+    color: rgba(253,248,239,.55);
+    letter-spacing: .1em;
+    margin-bottom: 18px;
+}
+
+.profile-main .tagline {
+    display: inline-block;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--gold-soft);
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(232,196,106,.25);
+}
+
+.profile-section {
+    margin-bottom: 40px;
+}
+
+.profile-section h3 {
+    font-family: "Cormorant Garamond", serif;
+    letter-spacing: .15em;
+    font-size: 1rem;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-section h3::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(232,196,106,.25);
+}
+
+.profile-section p {
+    font-size: .9rem;
+    color: rgba(253,248,239,.85);
+    line-height: 2.1;
+}
+
+.profile-data {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 28px;
+}
+
+.profile-data div {
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(253,248,239,.1);
+}
+
+.profile-data dt {
+    font-family: "Cormorant Garamond", serif;
+    letter-spacing: .1em;
+    font-size: .68rem;
+    color: var(--pink-deep);
+    text-transform: uppercase;
+}
+
+.profile-data dd {
+    font-size: .88rem;
+    color: var(--cream);
+    margin-top: 5px;
+}
+
+.profile-quotes {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.profile-quotes blockquote {
+    position: relative;
+    padding: 20px 24px 20px 40px;
+    background: rgba(255,255,255,.03);
+    border-left: 2px solid var(--pink-deep);
+    border-radius: 0 6px 6px 0;
+    font-size: .88rem;
+    color: rgba(253,248,239,.9);
+    line-height: 1.9;
+}
+
+.profile-quotes blockquote::before {
+    content: "\201C";
+    position: absolute;
+    left: 12px;
+    top: 8px;
+    font-family: Georgia, serif;
+    font-size: 1.6rem;
+    color: var(--pink-deep);
+    opacity: .7;
+}
+
+.profile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.profile-tags span {
+    font-size: .75rem;
+    padding: 6px 16px;
+    border: 1px solid rgba(224,143,174,.4);
+    border-radius: 999px;
+    color: var(--pink);
+    letter-spacing: .04em;
+}
+
+.profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.profile-links a {
+    font-size: .82rem;
+    padding: 10px 20px;
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    color: var(--gold-soft);
+    letter-spacing: .04em;
+    transition: background .25s ease, color .25s ease;
+}
+
+.profile-links a:hover {
+    background: var(--gold);
+    color: var(--navy-deep);
+}
+
+.profile-note {
+    font-size: .72rem;
+    color: rgba(253,248,239,.4);
+    margin-top: 6px;
+}
+
+@media (max-width: 860px) {
+    .profile-layout {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+    .profile-portrait { max-width: 320px; margin: 0 auto; }
+    .profile-fanname { max-width: 320px; margin-left: auto; margin-right: auto; }
+    .profile-data { grid-template-columns: 1fr 1fr; }
+    .profile-hero { padding: 110px 20px 70px; }
+
+    .profile-layout.is-wide .profile-portrait {
+        max-width: 100% !important;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-data { grid-template-columns: 1fr; }
+}

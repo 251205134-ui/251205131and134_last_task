@@ -1,0 +1,257 @@
+@charset "utf-8";
+
+*, ::before, ::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+
+:root {
+    --navy-deep: #0e1030;
+    --navy-mid: #191c47;
+    --navy-light: #2c2f6b;
+    --gold: #e8c46a;
+    --gold-soft: #f4dfa0;
+    --pink: #f3b6cc;
+    --pink-deep: #e08fae;
+    --sky: #8fd3f0;
+    --orange: #f0a868;
+    --cream: #fdf8ef;
+    --ink: #2a2540;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", sans-serif;
+    font-size: 16px;
+    color: var(--cream);
+    line-height: 1.8;
+    background-color: var(--navy-deep);
+    background-image:
+        radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,.5), transparent),
+        radial-gradient(1px 1px at 140px 90px, rgba(255,255,255,.4), transparent),
+        radial-gradient(2px 2px at 300px 60px, rgba(255,255,255,.6), transparent),
+        radial-gradient(1px 1px at 400px 200px, rgba(255,255,255,.4), transparent),
+        radial-gradient(1px 1px at 90px 250px, rgba(255,255,255,.5), transparent),
+        radial-gradient(2px 2px at 500px 320px, rgba(255,255,255,.5), transparent),
+        radial-gradient(1px 1px at 620px 150px, rgba(255,255,255,.4), transparent);
+    background-repeat: repeat;
+    background-size: 700px 700px;
+    overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+.eyebrow {
+    font-family: "Cormorant Garamond", serif;
+    letter-spacing: .35em;
+    font-size: .8rem;
+    color: var(--gold-soft);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+}
+
+/* ===== Header ===== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: linear-gradient(180deg, rgba(14,16,48,.92) 0%, rgba(14,16,48,.6) 70%, transparent 100%);
+    backdrop-filter: blur(6px);
+}
+
+.header-inner {
+    max-width: 1200px;
+    height: 84px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.3rem;
+    letter-spacing: .12em;
+    color: var(--gold-soft);
+}
+
+.header-logo .star-mark {
+    color: var(--gold);
+    font-size: 1.1rem;
+}
+
+.toggle-menu-button {
+    display: none;
+}
+
+.site-menu ul {
+    display: flex;
+    gap: 8px;
+}
+
+.site-menu ul li a {
+    display: block;
+    padding: 8px 20px;
+    font-family: "Cormorant Garamond", serif;
+    letter-spacing: .12em;
+    font-size: 1rem;
+    color: var(--cream);
+    position: relative;
+    transition: color .25s ease;
+}
+
+.site-menu ul li a::after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 2px;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .3s ease;
+}
+
+.site-menu ul li a:hover {
+    color: var(--gold-soft);
+}
+
+.site-menu ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+.site-menu ul li a.is-notice {
+    color: var(--pink-deep);
+}
+
+@media (max-width: 860px) {
+    .header-inner {
+        height: 64px;
+        padding: 0 20px;
+    }
+    .header-logo { font-size: 1.05rem; }
+
+    .toggle-menu-button {
+        display: block;
+        width: 40px;
+        height: 32px;
+        background: transparent;
+        border: 1px solid var(--gold-soft);
+        border-radius: 4px;
+        position: relative;
+    }
+    .toggle-menu-button::before,
+    .toggle-menu-button::after {
+        content: "";
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        height: 1px;
+        background: var(--gold-soft);
+    }
+    .toggle-menu-button::before { top: 11px; }
+    .toggle-menu-button::after { bottom: 11px; }
+
+    .header-site-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--navy-mid);
+        padding: 20px 0 30px;
+        display: none;
+        border-bottom: 1px solid rgba(232,196,106,.3);
+    }
+    .header-site-menu.is-show { display: block; }
+    .site-menu ul {
+        display: block;
+        text-align: center;
+    }
+    .site-menu ul li { margin-top: 6px; }
+
+    .main { padding-top: 64px; }
+}
+
+/* ===== Footer ===== */
+.footer {
+    color: var(--cream);
+    background: linear-gradient(180deg, var(--navy-deep) 0%, #08091f 100%);
+    padding: 60px 20px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(232,196,106,.25);
+}
+
+.footer-logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.4rem;
+    letter-spacing: .2em;
+    color: var(--gold-soft);
+    margin-bottom: 20px;
+}
+
+.footer .site-menu ul {
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.copyright {
+    display: block;
+    margin-top: 40px;
+    font-size: .75rem;
+    letter-spacing: .1em;
+    color: rgba(253,248,239,.5);
+}
+
+/* ===== shared section styles ===== */
+.section-title {
+    text-align: center;
+    font-size: 2.4rem;
+    color: var(--gold-soft);
+    letter-spacing: .1em;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+.section-sub {
+    text-align: center;
+    font-size: .85rem;
+    color: rgba(253,248,239,.6);
+    letter-spacing: .05em;
+    margin-bottom: 60px;
+}
+
+.divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 18px auto;
+    position: relative;
+}
+.divider::before {
+    content: "\2726";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--navy-deep);
+    color: var(--gold);
+    font-size: .8rem;
+    padding: 0 8px;
+}

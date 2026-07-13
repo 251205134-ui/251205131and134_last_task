@@ -1,0 +1,174 @@
+@charset "utf-8";
+
+.main { position: relative; }
+
+/* ===== Hero ===== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 20%, #232766 0%, var(--navy-deep) 55%, #08091f 100%);
+}
+
+.hero-banner-wrap {
+    position: relative;
+    width: min(1100px, 92vw);
+    margin-top: 84px;
+    animation: floatUp 1.4s ease both;
+}
+
+@keyframes floatUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-banner-wrap img {
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(232,196,106,.25);
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-family: "Cormorant Garamond", serif;
+    letter-spacing: .3em;
+    font-size: .7rem;
+    color: rgba(253,248,239,.65);
+}
+
+.hero-scroll .line {
+    width: 1px;
+    height: 34px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+    animation: scrollLine 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    50.01% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* twinkling stars layer */
+.twinkles span {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--gold-soft);
+    border-radius: 50%;
+    opacity: .7;
+    animation: twinkle 3s ease-in-out infinite;
+}
+@keyframes twinkle {
+    0%, 100% { opacity: .2; transform: scale(.8); }
+    50% { opacity: 1; transform: scale(1.4); }
+}
+
+/* ===== About ===== */
+.about {
+    padding: 120px 20px 100px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-lead {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    color: var(--gold-soft);
+    letter-spacing: .08em;
+    line-height: 1.9;
+    margin: 24px 0 30px;
+}
+
+.about-body {
+    font-size: .95rem;
+    color: rgba(253,248,239,.8);
+    letter-spacing: .03em;
+    line-height: 2.1;
+}
+
+@media (max-width: 600px) {
+    .pc-only { display: none; }
+}
+
+/* ===== Nav cards (メンバー/募集への導線) ===== */
+.top-nav-cards {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 140px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.nav-card {
+    position: relative;
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(232,196,106,.3);
+    background: linear-gradient(160deg, var(--navy-light), var(--navy-mid));
+    padding: 44px 30px;
+    text-align: center;
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+
+.nav-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,.4);
+    border-color: var(--gold);
+}
+
+.nav-card .card-eyebrow {
+    font-family: "Cormorant Garamond", serif;
+    letter-spacing: .3em;
+    font-size: .75rem;
+    color: var(--gold);
+}
+
+.nav-card h3 {
+    margin-top: 12px;
+    font-size: 1.7rem;
+    color: var(--cream);
+    letter-spacing: .06em;
+}
+
+.nav-card p {
+    margin-top: 14px;
+    font-size: .85rem;
+    color: rgba(253,248,239,.65);
+}
+
+.nav-card .arrow {
+    display: inline-block;
+    margin-top: 22px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: .85rem;
+    color: var(--gold-soft);
+    letter-spacing: .15em;
+}
+
+.nav-card.is-closed {
+    background: linear-gradient(160deg, #38263a, #241a30);
+    border-color: rgba(224,143,174,.35);
+}
+.nav-card.is-closed h3 { color: var(--pink); }
+.nav-card.is-closed .card-eyebrow { color: var(--pink-deep); }
+.nav-card.is-closed .arrow { color: var(--pink); }
+
+@media (max-width: 760px) {
+    .top-nav-cards { grid-template-columns: 1fr; }
+    .hero-banner-wrap { margin-top: 100px; }
+}

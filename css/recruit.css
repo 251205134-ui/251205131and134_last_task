@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+.recruit-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px 80px;
+    background: radial-gradient(ellipse at 50% 30%, #2b1e3c 0%, var(--navy-deep) 55%, #08091f 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.recruit-panel {
+    position: relative;
+    max-width: 640px;
+    width: 100%;
+    text-align: center;
+    padding: 70px 40px;
+    border: 1px solid rgba(232,196,106,.35);
+    border-radius: 12px;
+    background: linear-gradient(160deg, rgba(44,47,107,.5), rgba(14,16,48,.6));
+    backdrop-filter: blur(4px);
+}
+
+.recruit-panel::before,
+.recruit-panel::after {
+    content: "\2726";
+    position: absolute;
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: .7;
+}
+.recruit-panel::before { top: 20px; left: 24px; }
+.recruit-panel::after { bottom: 20px; right: 24px; }
+
+.recruit-status {
+    display: inline-block;
+    padding: 6px 22px;
+    border: 1px solid var(--pink-deep);
+    border-radius: 999px;
+    color: var(--pink);
+    font-size: .75rem;
+    letter-spacing: .2em;
+    margin-bottom: 30px;
+}
+
+.recruit-panel h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--cream);
+    letter-spacing: .1em;
+    line-height: 1.6;
+    margin-bottom: 26px;
+}
+
+.recruit-panel .message {
+    font-size: .92rem;
+    color: rgba(253,248,239,.8);
+    line-height: 2.1;
+    margin-bottom: 40px;
+}
+
+.recruit-panel .thanks {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--gold-soft);
+    margin-bottom: 40px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Cormorant Garamond", serif;
+    letter-spacing: .15em;
+    font-size: .85rem;
+    color: var(--gold);
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 4px;
+    transition: opacity .25s ease;
+}
+.back-link:hover { opacity: .7; }
