@@ -75,18 +75,25 @@
 
 .profile-fanname {
     margin-top: 18px;
-    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 16px;
     font-family: "Cormorant Garamond", serif;
     font-size: .85rem;
     letter-spacing: .1em;
     color: var(--gold-soft);
 }
 
+.profile-fanname::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(232,196,106,.25);
+}
+
 .profile-fanname strong {
-    display: block;
     font-size: 1.1rem;
     color: var(--cream);
-    margin-top: 4px;
     letter-spacing: .06em;
 }
 
